@@ -23,19 +23,32 @@ class BookDescription extends PolymerElement {
         }
         iron-image {
           width: 100%;
-          border-radius: 4px;
+          border-radius: 3px;
 
         }
+        .book-details {
+          font-family: Aspira-Bold, Helvetica, Arial, Sans-serif;
+          color: #000;
+          font-size: 12px
+
+        }
+        .meta-desc {
+          font-weight: Bold;
+        }
+
       </style>
       <div>
         <iron-image src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
-        <div>
-        <span class="isbn">ISBN:</span>
-        <span class="isbn-number">{{isbn}}</span>
+        <div class="book-details">
+          <span class="meta-desc">ISBN:</span>
+          <span class=meta-data>{{isbn}}</span>
         </div>
-        <template is="dom-repeat" items="[[authors]]">
-          <p>Authors: {{item}}</p>
-        </template>
+        <div class="book-details">
+          <template is="dom-repeat" items="[[authors]]">
+            <span class="meta-desc">Authors:</span>
+            <span class="meta-data">{{item}}</span>
+          </template>
+        </div>
       </div>
     `;
   }
