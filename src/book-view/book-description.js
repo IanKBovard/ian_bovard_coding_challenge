@@ -8,6 +8,7 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
+// This component is responsible for rendering the Cover, ISBN, and Authors of the book. Data is passed into this component from the main book view component index.js
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import '@polymer/iron-image/iron-image.js';
 

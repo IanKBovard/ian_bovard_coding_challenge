@@ -8,6 +8,7 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
+// This component is responsible for rendering the Table of Contents. Data is passed into this component from the main book view component index.js
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 
 class TableOfContents extends PolymerElement {
@@ -69,3 +70,9 @@ class TableOfContents extends PolymerElement {
 }
 
 window.customElements.define('table-of-contents', TableOfContents);
+
+// NOTES
+
+// The title property for the table of contents is an empty string. If it were not, between the a tag where the string "Title should go here" I would put {{item.title}}
+
+// Links do not work, but are using the correct property item.file

@@ -4,6 +4,8 @@ import'./book-description.js';
 import'./table-of-contents.js';
 import'./book-title.js';
 
+
+//This is the main book view component. It is responsible for making the AJAX request and passing relevent data to each component.
 class BookView extends PolymerElement {
   static get template() {
     return html`

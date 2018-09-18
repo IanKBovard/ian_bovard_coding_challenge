@@ -1,3 +1,9 @@
+Ian Bovard Code Challenge
+
+Work can be seen in the book-view folder, the my-app.js file, and the test folder in the book-view.html file.
+
+Comments in each file have been added to clarify what each component is for, and if I had any difficulties.
+
 # Polymer App Toolbox - Starter Kit
 
 [![Build Status](https://travis-ci.org/Polymer/polymer-starter-kit.svg?branch=master)](https://travis-ci.org/Polymer/polymer-starter-kit)

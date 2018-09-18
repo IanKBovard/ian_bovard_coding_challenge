@@ -23,21 +23,85 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script type="module" src="../src/book-view/index.js"></script>
   </head>
   <body>
-    <test-fixture id="BasicView">
+    <test-fixture id="simple-get">
       <template>
-        <my-view1></my-view1>
+        <iron-ajax url="https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"></iron-ajax>
       </template>
     </test-fixture>
-
-    <script type="module">
-      suite('book-view tests', function() {
-        test('Number in circle should be 1', function() {
-          var myView = fixture('BasicView');
-          var circle = myView.shadowRoot.querySelector('.circle');
-
-          assert.equal(circle.textContent, '1');
+    <script>
+      suite('<iron-ajax>', function() {
+        var ajax;
+        var request;
+        var server;
+        var responseObject = {
+          "isbn": "pg1017",
+          "title": "The Soul of Man under Socialism",
+          "contributors": [
+            "Oscar Wilde"
+          ],
+          "flags": {
+            "pages": false,
+            "noCover": false
+          },
+          "pathTo": {
+            "toc": "epub/OEBPS/wrap0000.html"
+          },
+          "toc": [
+            {
+              "file": "epub/OEBPS/wrap0000.html",
+              "title": "",
+              "first": 1,
+              "num": 1
+            },
+            {
+              "file": "epub/OEBPS/@public@vhost@g@gutenberg@html@files@1017@1017-h@1017-h-0.htm.html",
+              "title": "",
+              "first": 2,
+              "num": 34
+            },
+            {
+              "file": "epub/OEBPS/@public@vhost@g@gutenberg@html@files@1017@1017-h@1017-h-1.htm.html",
+              "title": "",
+              "first": 36,
+              "num": 16
+            }
+          ],
+          "date": 1997
+        };
+        setup(function() {
+          server = sinon.fakeServer.create();
+          server.respondWith(JSON.stringify(responseObject));
+        });
+        teardown(function() {
+          server.restore();
+        });
+        suite('when making simple GET requests for JSON', function() {
+          setup(function() {
+            // get fresh instance of iron-ajax before every test
+            ajax = fixture('simple-get');
+          });
+          test('Iron Ajax request returns an object', function() {
+            request = ajax.generateRequest();
+            server.respond();
+            expect(request.response).to.be.an('object');
+          });
         });
       });
     </script>
   </body>
 </html>
+
+<!--Notes
+  I am having a some difficulty understanding how to unit test using polymer.
+
+  Things I think I understand...
+  It looks like to me that we need to use sinon to set up a fake server to mock the iron ajax response.
+
+  In polymer you unit test components by making test components and passing in values.
+
+  Things I know I'm not doing correctly...
+  My test passes but, I don't think the request.reponse variable is undefined.
+
+  I'm not testing the book-view component, instead I am exclusively testing the Ajax request. I am not sure what is best practice in this situation.
+
+-->
