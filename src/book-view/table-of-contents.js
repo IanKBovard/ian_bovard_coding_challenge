@@ -35,15 +35,33 @@ class TableOfContents extends PolymerElement {
         .toc-content {
           position: relative;
           padding-left: 30px;
-
+          white-space: nowrap;
+        }
+        ol {
+          display: block;
+          list-style-type: decimal;
+        }
+        li {
+          display: list-item;
+        }
+        a {
+          color: inherit;
+          text-decoration: none;
+        }
+        a:hover {
+          background-color: #FFD700;
         }
       </style>
       <div class="toc-container">
         <span class="toc-text">Contents</span>
         <div class="toc-content">
-          <template is="dom-repeat" items="[[toc]]">
-            <p>{{item}}</p>
-          </template>
+          <ol>
+            <template is="dom-repeat" items="[[toc]]">
+                  <li>
+                  <a href="{{item.file}}">Title should go here</a>
+                  </li>
+            </template>
+          </ol>
         </div>
       </div>
     `;
