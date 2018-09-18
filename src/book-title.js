@@ -9,7 +9,6 @@
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './shared-styles.js';
 
 class BookTitle extends PolymerElement {
   static get template() {
@@ -18,10 +17,22 @@ class BookTitle extends PolymerElement {
         :host {
           text-align: left;
         }
+        .title {
+          font-family: Aspira-Medium, Helvetica, Arial, Sans-serif;
+          font-size: 25px;
+          color: #333
+        }
+        .title-container {
+          border-right: 2px solid #ccc;
+          padding-right: 15px;
+          margin-right: 7px;
+        }
       </style>
-      <div>
-        <h1>{{title}}</h1>
-      </div>
+      <h1>
+        <span class="title-container">
+          <span class="title">{{title}}</span>
+        </span>
+      </h1>
     `;
   }
 }

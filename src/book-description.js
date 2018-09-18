@@ -9,7 +9,7 @@
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './shared-styles.js';
+import '@polymer/iron-image/iron-image.js'
 
 class BookDescription extends PolymerElement {
   static get template() {

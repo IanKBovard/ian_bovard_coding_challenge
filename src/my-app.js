@@ -40,21 +40,18 @@ class MyApp extends PolymerElement {
         </book-title>
         <book-description isbn="{{bookData.isbn}}" authors="{{bookData.contributors}}">
         </book-description>
-        <table-of-contents tableOfContents="{{tableOfContents}}">
+        <table-of-contents toc="{{bookData.toc}}">
         </table-of-contents>
       </div>
     `;
   }
     handleResponse(res){
     this.bookData = res.detail.response
-    this.tableOfContents = this.bookData.toc
-    console.log(this)
     return
   }
     constructor() {
     super();
     this.bookData = {}
-    this.tableOfContents = []
   }
 }
 

@@ -9,7 +9,6 @@
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import './shared-styles.js';
 
 class TableOfContents extends PolymerElement {
   static get template() {
@@ -22,8 +21,9 @@ class TableOfContents extends PolymerElement {
       </style>
       <div>
         <h1>TABLE OF CONTENTS</h1>
-        <p>Ut labores minimum atomorum pro. Laudem tibique ut has.</p>
-        <p>Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Lorem ipsum dolor sit amet, per in nusquam nominavi periculis, sit elit oportere ea.Cu mei vide viris gloriatur, at populo eripuit sit.</p>
+        <template is="dom-repeat" items="[[toc]]">
+          <p>{{item}}</p>
+        </template>
       </div>
     `;
   }
