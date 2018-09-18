@@ -15,15 +15,36 @@ class TableOfContents extends PolymerElement {
     return html`
       <style>
         :host {
-          float: right;
-          width: 66.66%;
+        }
+        .toc-container {
+          position: relative;
+          display: inline-block;
+          width: 500px;
+          height: 252px;
+          font-family: Aspira-Bold, Helvetica, Arial, Sans-serif;
+          color: #000;
+        }
+        .toc-text {
+          font-weight: bold;
+          font-size: 18px;
+          position: relative;
+          display: inline-block;
+          padding-left: 20px;
+          padding-top: 20px;
+        }
+        .toc-content {
+          position: relative;
+          padding-left: 30px;
+
         }
       </style>
-      <div>
-        <h1>TABLE OF CONTENTS</h1>
-        <template is="dom-repeat" items="[[toc]]">
-          <p>{{item}}</p>
-        </template>
+      <div class="toc-container">
+        <span class="toc-text">Contents</span>
+        <div class="toc-content">
+          <template is="dom-repeat" items="[[toc]]">
+            <p>{{item}}</p>
+          </template>
+        </div>
       </div>
     `;
   }

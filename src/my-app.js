@@ -28,6 +28,11 @@ class MyApp extends PolymerElement {
       <style>
         :host {
         }
+        .book-data {
+          width: 100%;
+          overflow: hidden;
+          white-space: nowrap;
+        }
       </style>
       <iron-ajax
         auto
@@ -35,7 +40,7 @@ class MyApp extends PolymerElement {
         handle-as="json"
         on-response="handleResponse">
       </iron-ajax>
-      <div>
+      <div class="book-data">
         <book-title title="{{bookData.title}}">
         </book-title>
         <book-description isbn="{{bookData.isbn}}" authors="{{bookData.contributors}}">

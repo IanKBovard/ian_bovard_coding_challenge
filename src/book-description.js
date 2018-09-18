@@ -16,15 +16,12 @@ class BookDescription extends PolymerElement {
     return html`
       <style>
         :host {
-          float: left;
-          width: 30%;
           margin-left: 1%;
           margin-right: 1%;
+          float: left;
         }
         iron-image {
-          width: 100%;
-          border-radius: 3px;
-
+          border-radius: 5px;
         }
         .book-details {
           font-family: Aspira-Bold, Helvetica, Arial, Sans-serif;
