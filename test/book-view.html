@@ -1,0 +1,107 @@
+<!--
+@license
+Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>my-view1</title>
+
+    <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-bundle.js"></script>
+    <script src="../node_modules/wct-browser-legacy/browser.js"></script>
+
+    <!-- Import the element to test -->
+    <script type="module" src="../src/book-view/index.js"></script>
+  </head>
+  <body>
+    <test-fixture id="simple-get">
+      <template>
+        <iron-ajax url="https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"></iron-ajax>
+      </template>
+    </test-fixture>
+    <script>
+      suite('<iron-ajax>', function() {
+        var ajax;
+        var request;
+        var server;
+        var responseObject = {
+          "isbn": "pg1017",
+          "title": "The Soul of Man under Socialism",
+          "contributors": [
+            "Oscar Wilde"
+          ],
+          "flags": {
+            "pages": false,
+            "noCover": false
+          },
+          "pathTo": {
+            "toc": "epub/OEBPS/wrap0000.html"
+          },
+          "toc": [
+            {
+              "file": "epub/OEBPS/wrap0000.html",
+              "title": "",
+              "first": 1,
+              "num": 1
+            },
+            {
+              "file": "epub/OEBPS/@public@vhost@g@gutenberg@html@files@1017@1017-h@1017-h-0.htm.html",
+              "title": "",
+              "first": 2,
+              "num": 34
+            },
+            {
+              "file": "epub/OEBPS/@public@vhost@g@gutenberg@html@files@1017@1017-h@1017-h-1.htm.html",
+              "title": "",
+              "first": 36,
+              "num": 16
+            }
+          ],
+          "date": 1997
+        };
+        setup(function() {
+          server = sinon.fakeServer.create();
+          server.respondWith(JSON.stringify(responseObject));
+        });
+        teardown(function() {
+          server.restore();
+        });
+        suite('when making simple GET requests for JSON', function() {
+          setup(function() {
+            // get fresh instance of iron-ajax before every test
+            ajax = fixture('simple-get');
+          });
+          test('Iron Ajax request returns an object', function() {
+            request = ajax.generateRequest();
+            server.respond();
+            expect(request.response).to.be.an('object');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<!--Notes
+  I am having a some difficulty understanding how to unit test using polymer.
+
+  Things I think I understand...
+  It looks like to me that we need to use sinon to set up a fake server to mock the iron ajax response.
+
+  In polymer you unit test components by making test components and passing in values.
+
+  Things I know I'm not doing correctly...
+  My test passes but, I don't think the request.reponse variable is undefined.
+
+  I'm not testing the book-view component, instead I am exclusively testing the Ajax request. I am not sure what is best practice in this situation.
+
+-->

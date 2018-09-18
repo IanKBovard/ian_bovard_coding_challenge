@@ -8,22 +8,36 @@
  * subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
  */
 
+
+// This component is responsible for rendering the Title of the book. Data is passed into this component from the main book view component index.js
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 
-class MyView404 extends PolymerElement {
+class BookTitle extends PolymerElement {
   static get template() {
     return html`
       <style>
         :host {
-          display: block;
-
-          padding: 10px 20px;
+          text-align: left;
+        }
+        .title {
+          font-family: Aspira-Medium, Helvetica, Arial, Sans-serif;
+          font-size: 25px;
+          color: #333;
+          margin-left: 1%;
+        }
+        .title-container {
+          border-right: 2px solid #ccc;
+          padding-right: 15px;
+          margin-right: 7px;
         }
       </style>
-
-      Oops you hit a 404. <a href="[[rootPath]]">Head back to home.</a>
+      <h1>
+        <span class="title-container">
+          <span class="title">{{title}}</span>
+        </span>
+      </h1>
     `;
   }
 }
 
-window.customElements.define('my-view404', MyView404);
+window.customElements.define('book-title', BookTitle);

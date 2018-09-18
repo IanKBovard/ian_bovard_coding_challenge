@@ -10,10 +10,7 @@
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
-import '@polymer/iron-ajax/iron-ajax.js';
-import'./book-description.js';
-import'./table-of-contents.js';
-import'./book-title.js';
+import './book-view/index.js';
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
 setPassiveTouchGestures(true);
@@ -29,32 +26,8 @@ class MyApp extends PolymerElement {
         :host {
         }
       </style>
-      <iron-ajax
-        auto
-        url="https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"
-        handle-as="json"
-        on-response="handleResponse">
-      </iron-ajax>
-      <div>
-        <book-title title="{{bookData.title}}">
-        </book-title>
-        <book-description isbn="{{bookData.isbn}}" authors="{{bookData.contributors}}">
-        </book-description>
-        <table-of-contents tableOfContents="{{tableOfContents}}">
-        </table-of-contents>
-      </div>
+      <book-view></book-view>
     `;
-  }
-    handleResponse(res){
-    this.bookData = res.detail.response
-    this.tableOfContents = this.bookData.toc
-    console.log(this)
-    return
-  }
-    constructor() {
-    super();
-    this.bookData = {}
-    this.tableOfContents = []
   }
 }
 
