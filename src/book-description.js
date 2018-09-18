@@ -23,8 +23,8 @@ class BookDescription extends PolymerElement {
       <div>
         <h1>PICTURE AND DESC</h1>
         <p>ISBN:     {{isbn}}</p>
-        <template is="dom-repeat" authors="[[authors]]">
-          <p>{{author}}</p>
+        <template is="dom-repeat" items="[[authors]]">
+          <p>Authors: {{item}}</p>
         </template>
       </div>
     `;
