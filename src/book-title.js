@@ -13,14 +13,15 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 class BookTitle extends PolymerElement {
   static get template() {
     return html`
-      <style include="shared-styles">
+      <style>
         :host {
           text-align: left;
         }
         .title {
           font-family: Aspira-Medium, Helvetica, Arial, Sans-serif;
-          font-size: 25px;
-          color: #333
+          font-size: 28px;
+          color: #333;
+          margin-left: 1%;
         }
         .title-container {
           border-right: 2px solid #ccc;

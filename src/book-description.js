@@ -9,20 +9,30 @@
  */
 
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
-import '@polymer/iron-image/iron-image.js'
+import '@polymer/iron-image/iron-image.js';
 
 class BookDescription extends PolymerElement {
   static get template() {
     return html`
-      <style include="shared-styles">
+      <style>
         :host {
           float: left;
-          width: 33.33%;
+          width: 30%;
+          margin-left: 1%;
+          margin-right: 1%;
+        }
+        iron-image {
+          width: 100%;
+          border-radius: 4px;
+
         }
       </style>
       <div>
-        <h1>PICTURE AND DESC</h1>
-        <p>ISBN:     {{isbn}}</p>
+        <iron-image src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
+        <div>
+        <span class="isbn">ISBN:</span>
+        <span class="isbn-number">{{isbn}}</span>
+        </div>
         <template is="dom-repeat" items="[[authors]]">
           <p>Authors: {{item}}</p>
         </template>

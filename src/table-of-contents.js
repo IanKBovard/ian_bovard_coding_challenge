@@ -13,7 +13,7 @@ import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 class TableOfContents extends PolymerElement {
   static get template() {
     return html`
-      <style include="shared-styles">
+      <style>
         :host {
           float: right;
           width: 66.66%;
