@@ -23,16 +23,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <script type="module" src="../src/book-view/index.js"></script>
   </head>
   <body>
-    <test-fixture id="simple-get">
+    <test-fixture id="bookView">
       <template>
-        <iron-ajax url="https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"></iron-ajax>
+        <book-view></book-view>
       </template>
     </test-fixture>
     <script>
-      suite('<iron-ajax>', function() {
+      suite('Book View Component', function() {
         var ajax;
         var request;
         var server;
+        var url = "https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json";
         var responseObject = {
           "isbn": "pg1017",
           "title": "The Soul of Man under Socialism",
@@ -70,21 +71,23 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         };
         setup(function() {
           server = sinon.fakeServer.create();
-          server.respondWith(JSON.stringify(responseObject));
+          server.respondWith("GET", url,
+            [200, { "Content-Type": "application/json" },
+             JSON.stringify(responseObject)]);
+
         });
         teardown(function() {
           server.restore();
         });
-        suite('when making simple GET requests for JSON', function() {
+        suite('Book View GET requests', function() {
           setup(function() {
-            // get fresh instance of iron-ajax before every test
-            ajax = fixture('simple-get');
-          });
-          test('Iron Ajax request returns an object', function() {
-            request = ajax.generateRequest();
+            ajax = fixture('bookView');
             server.respond();
-            expect(request.response).to.be.an('object');
           });
+          test('Book View component makes a request to the correct URL', function() {
+            expect(server.responses[0].url).to.deep.equal(url);
+          });
+          test()
         });
       });
     </script>
