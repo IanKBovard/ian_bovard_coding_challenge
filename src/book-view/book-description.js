@@ -25,8 +25,6 @@ class BookDescription extends PolymerElement {
           border-radius: 5px;
         }
         .book-details {
-          font-family: Aspira-Bold, Helvetica, Arial, Sans-serif;
-          color: #000;
           font-size: 12px
 
         }

@@ -22,8 +22,6 @@ class TableOfContents extends PolymerElement {
           display: inline-block;
           width: 500px;
           height: 252px;
-          font-family: Aspira-Bold, Helvetica, Arial, Sans-serif;
-          color: #000;
         }
         .toc-text {
           font-weight: bold;

@@ -16,6 +16,8 @@ class BookView extends PolymerElement {
           width: 100%;
           overflow: hidden;
           white-space: nowrap;
+          font-family: Aspira-Bold, Helvetica, Arial, Sans-serif;
+          color: #000;
         }
       </style>
       <iron-ajax

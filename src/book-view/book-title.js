@@ -20,7 +20,6 @@ class BookTitle extends PolymerElement {
           text-align: left;
         }
         .title {
-          font-family: Aspira-Medium, Helvetica, Arial, Sans-serif;
           font-size: 25px;
           color: #333;
           margin-left: 1%;
