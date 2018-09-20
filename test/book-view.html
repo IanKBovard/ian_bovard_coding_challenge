@@ -83,11 +83,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           setup(function() {
             ajax = fixture('bookView');
             server.respond();
+            res = server.responses[0];
           });
           test('Book View component makes a request to the correct URL', function() {
-            expect(server.responses[0].url).to.deep.equal(url);
+            expect(res.url).to.deep.equal(url);
           });
-          test()
+          test('Book View component responds with a 200 when correct request has been made', function() {
+            expect(res.response[0]).to.deep.equal(200);
+          })
         });
       });
     </script>
