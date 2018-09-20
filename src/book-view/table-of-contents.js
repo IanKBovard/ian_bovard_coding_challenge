@@ -71,6 +71,6 @@ window.customElements.define('table-of-contents', TableOfContents);
 
 // NOTES
 
-// The title property for the table of contents is an empty string. If it were not, between the a tag where the string "Title should go here" I would put {{item.title}}
+// The title property for the table of contents is an empty string. If it were not, between the a tag where the string "Title should go here" I would put [[item.title]]
 
 // Links do not work, but are using the correct property item.file

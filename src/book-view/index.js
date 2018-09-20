@@ -22,7 +22,7 @@ class BookView extends PolymerElement {
       </style>
       <iron-ajax
         auto
-        url="https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"
+        url=[[url]]
         handle-as="json"
         on-response="handleResponse">
       </iron-ajax>

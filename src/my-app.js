@@ -26,8 +26,12 @@ class MyApp extends PolymerElement {
         :host {
         }
       </style>
-      <book-view></book-view>
+        <book-view url="[[url]]"></book-view>
     `;
+  }
+  constructor() {
+    super();
+    this.url = "https://d1re4mvb3lawey.cloudfront.net/pg1017/index.json"
   }
 }
 
