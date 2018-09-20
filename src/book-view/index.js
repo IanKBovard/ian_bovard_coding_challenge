@@ -36,7 +36,6 @@ class BookView extends PolymerElement {
   }
     handleResponse(res){
     this.bookData = res.detail.response
-    console.log(this.bookData.toc)
     return
   }
     constructor() {
