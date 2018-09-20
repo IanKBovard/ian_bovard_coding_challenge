@@ -59,7 +59,7 @@ class TableOfContents extends PolymerElement {
           <ol>
             <template is="dom-repeat" items="[[toc]]">
                   <li>
-                  <a href="{{item.file}}">Title should go here</a>
+                  <a href="[[item.file]]">Title should go here</a>
                   </li>
             </template>
           </ol>

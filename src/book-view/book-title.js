@@ -33,7 +33,7 @@ class BookTitle extends PolymerElement {
       </style>
       <h1>
         <span class="title-container">
-          <span class="title">{{title}}</span>
+          <span class="title">[[title]]</span>
         </span>
       </h1>
     `;

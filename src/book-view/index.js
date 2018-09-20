@@ -27,9 +27,9 @@ class BookView extends PolymerElement {
       <div class="book-data">
         <book-title title="[[bookData.title]]">
         </book-title>
-        <book-description isbn="{{bookData.isbn]]" authors="{{bookData.contributors}}">
+        <book-description isbn="[[bookData.isbn]]" authors="[[bookData.contributors]]">
         </book-description>
-        <table-of-contents toc="{{bookData.toc}}">
+        <table-of-contents toc="[[bookData.toc]]">
         </table-of-contents>
       </div>
     `;

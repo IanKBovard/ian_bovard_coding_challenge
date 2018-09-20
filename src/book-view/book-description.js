@@ -39,12 +39,12 @@ class BookDescription extends PolymerElement {
         <iron-image src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
         <div class="book-details">
           <span class="meta-desc">ISBN:</span>
-          <span class=meta-data>{{isbn}}</span>
+          <span class=meta-data>[[isbn]]</span>
         </div>
         <div class="book-details">
           <template is="dom-repeat" items="[[authors]]">
             <span class="meta-desc">Authors:</span>
-            <span class="meta-data">{{item}}</span>
+            <span class="meta-data">[[item]]</span>
           </template>
         </div>
       </div>
