@@ -11,6 +11,7 @@
 import { PolymerElement, html } from '@polymer/polymer/polymer-element.js';
 import { setPassiveTouchGestures, setRootPath } from '@polymer/polymer/lib/utils/settings.js';
 import './book-view/index.js';
+import './book-list-view/index.js'
 // Gesture events like tap and track generated from touch will not be
 // preventable, allowing for better scrolling performance.
 setPassiveTouchGestures(true);
@@ -26,7 +27,7 @@ class MyApp extends PolymerElement {
         :host {
         }
       </style>
-        <book-view url="[[url]]"></book-view>
+        <book-list-view></book-list-view>
     `;
   }
   constructor() {
