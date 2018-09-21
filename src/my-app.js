@@ -27,7 +27,8 @@ class MyApp extends PolymerElement {
         :host {
         }
       </style>
-        <book-list-view></book-list-view>
+      <book-list-view></book-list-view>
+      <book-view url="[[url]]"><book-view>
     `;
   }
   constructor() {

@@ -14,6 +14,13 @@ class BookList extends PolymerElement {
           box-shadow: 0 1px 2px rgba(0,0,0,0.15);
           transition: box-shadow 0.3s ease-in-out;
         }
+        .text-overlay {
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+        }
         .column {
             float: left;
             width: 25%;
