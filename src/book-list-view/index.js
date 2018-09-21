@@ -37,21 +37,30 @@ class BookList extends PolymerElement {
           cursor: pointer;
       }
       </style>
-        <div class="row">
+      <div class="row">
+        <template is="dom-repeat" items="[[dummyData]]">
           <div class="column">
-            <iron-image src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
+            <iron-image src="[[item.image]]"></iron-image>
           </div>
-          <div class="column">
-            <iron-image src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
-          </div>
-          <div class="column">
-            <iron-image src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
-          </div>
-          <div class="column">
-            <iron-image src="https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg"></iron-image>
-          </div>
-        </div>
+        </template>
+      </div>
     `;
+  }
+    constructor() {
+    super();
+    this.dummyData = [
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" },
+    { image: "https://d1re4mvb3lawey.cloudfront.net/pg1017/cover.jpg" }
+
+    ];
   }
 }
 
